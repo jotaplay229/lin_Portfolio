@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lin | High-Authority Video Editor & Motion Designer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c77dff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='6' cy='6' r='3'></circle><circle cx='6' cy='18' r='3'></circle><line x1='20' y1='4' x2='8.12' y2='15.88'></line><line x1='14.47' y1='14.48' x2='20' y2='20'></line><line x1='8.12' y1='8.12' x2='12' y2='12'></line></svg>">
+    <meta name="description" content="Portfolio of Lean Hilson (Lin), professional video editor & motion designer specializing in high-authority video assets for B2B SaaS and finance. DaVinci, AE, Blender.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- CDNs (Three.js, GSAP, Lucide Icons) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="lang-en">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-glow" id="custom-cursor-glow"></div>
+
+    <!-- Background Canvas Container for Three.js -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo" id="header-logo">
+                <svg class="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                    <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                    <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                </svg>
+                <span class="logo-text">LIN<span class="dot">.</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#work" class="nav-item">
+                    <span class="en-text">Portfolio</span>
+                    <span class="pt-text">Portfólio</span>
+                </a>
+                <a href="#about" class="nav-item">
+                    <span class="en-text">About</span>
+                    <span class="pt-text">Sobre</span>
+                </a>
+                <a href="#values" class="nav-item">
+                    <span class="en-text">Values</span>
+                    <span class="pt-text">Diferenciais</span>
+                </a>
+                <a href="#experience" class="nav-item">
+                    <span class="en-text">Experience</span>
+                    <span class="pt-text">Experiência</span>
+                </a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Language Toggle Button -->
+                <button class="lang-toggle-btn" id="lang-toggle-btn" aria-label="Toggle language">
+                    <span class="lang-option active" data-lang="en">EN</span>
+                    <span class="lang-separator">/</span>
+                    <span class="lang-option" data-lang="pt">PT</span>
+                </button>
+                
+                <a href="https://x.com/Lin234x" target="_blank" class="btn btn-primary nav-cta-btn" id="nav-cta-link">
+                    <span class="en-text">DM for work</span>
+                    <span class="pt-text">Contato</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">
+                <span class="en-text">High-Authority Video Editing</span>
+                <span class="pt-text">Edição de Vídeo de Alta Autoridade</span>
+            </p>
+            <h1 class="hero-title">
+                It's All About 
+                <span class="hero-serif-title">AUTHORITY</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="en-text">make people believe in your brand</span>
+                <span class="pt-text">faça as pessoas acreditarem na sua marca</span>
+            </p>
+            
+            <div class="hero-ctas">
+                <a href="#work" class="btn btn-primary hero-btn">
+                    <span class="en-text">See My Edits</span>
+                    <span class="pt-text">Ver Trabalhos</span>
+                </a>
+                <a href="https://x.com/Lin234x" target="_blank" class="btn btn-outline hero-btn-secondary">
+                    <span class="en-text">Let's Talk on X</span>
+                    <span class="pt-text">Conversar no X</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span class="en-text">Scroll to explore</span>
+            <span class="pt-text">Role para explorar</span>
+            <div class="scroll-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Trust Section -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-card reveal-in reveal-delay-1">
+                <h3 class="stat-number">2+</h3>
+                <p class="stat-label">
+                    <span class="en-text">Years of Experience</span>
+                    <span class="pt-text">Anos de Experiência</span>
+                </p>
+            </div>
+            <div class="stat-card reveal-in reveal-delay-2">
+                <h3 class="stat-number">B2B SaaS</h3>
+                <p class="stat-label">
+                    <span class="en-text">Primary Focus</span>
+                    <span class="pt-text">Foco Principal</span>
+                </p>
+            </div>
+            <div class="stat-card reveal-in reveal-delay-3">
+                <h3 class="stat-number">100%</h3>
+                <p class="stat-label">
+                    <span class="en-text">Custom Motion & 3D</span>
+                    <span class="pt-text">Motion & 3D Personalizado</span>
+                </p>
+            </div>
+            <div class="stat-card reveal-in reveal-delay-4">
+                <h3 class="stat-number">Global</h3>
+                <p class="stat-label">
+                    <span class="en-text">Client Reach</span>
+                    <span class="pt-text">Alcance de Clientes</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container about-grid">
+            <div class="about-info reveal-in">
+                <h2 class="section-title">
+                    <span class="en-text">Who is Lin?</span>
+                    <span class="pt-text">Quem é Lin?</span>
+                </h2>
+                <div class="about-bio">
+                    <p class="en-text">
+                        My name is <strong>Lean Hilson Reinaldo Braga</strong>, known online as <strong>"Lin"</strong>. For almost 2 years, I have specialized in transforming standard talking-head footage into high-authority video assets.
+                    </p>
+                    <p class="pt-text">
+                        Meu nome é <strong>Lean Hilson Reinaldo Braga</strong>, conhecido na internet como <strong>"Lin"</strong>. Há quase 2 anos, me especializo em transformar filmagens brutas de talking-head em ativos de vídeo de alta autoridade.
+                    </p>
+
+                    <p class="en-text">
+                        My goal isn't just to keep viewers watching, but to make them trust your personal brand enough to click your links. I primarily work with B2B SaaS founders and finance content creators, helping them build loyal audiences and generate consistent leads.
+                    </p>
+                    <p class="pt-text">
+                        Meu objetivo não é apenas reter a atenção do espectador, mas também fazê-los confiar na sua marca pessoal o suficiente para clicar nos seus links. Trabalho principalmente com fundadores de SaaS B2B e nicho de finanças/negócios, ajudando-os a criar uma audiência leal e gerar leads consistentes.
+                    </p>
+                </div>
+
+                <div class="tools-container">
+                    <h4 class="tools-title">
+                        <span class="en-text">Production Stack</span>
+                        <span class="pt-text">Ferramentas de Produção</span>
+                    </h4>
+                    <div class="tools-grid">
+                        <div class="tool-badge" data-tool="davinci">
+                            <span class="tool-dot purple"></span>
+                            <span class="tool-name">DaVinci Resolve</span>
+                        </div>
+                        <div class="tool-badge" data-tool="ae">
+                            <span class="tool-dot blue"></span>
+                            <span class="tool-name">After Effects</span>
+                        </div>
+                        <div class="tool-badge" data-tool="blender">
+                            <span class="tool-dot orange"></span>
+                            <span class="tool-name">Blender 3D</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual reveal-in">
+                <div class="visual-card-3d">
+                    <div class="visual-glow"></div>
+                    <div class="visual-inner">
+                        <svg class="visual-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="6" cy="6" r="3"></circle>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                            <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                            <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                        </svg>
+                        <div class="visual-lines">
+                            <div class="line-row"><span class="line-tag">timeline</span><span class="line-val">Resolve Studio</span></div>
+                            <div class="line-row"><span class="line-tag">motion</span><span class="line-val">After Effects</span></div>
+                            <div class="line-row"><span class="line-tag">renderer</span><span class="line-val">Cycles 3D</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Values (Bento Grid) -->
+    <section class="values-section" id="values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center">
+                    <span class="en-text">What I Bring to the Table</span>
+                    <span class="pt-text">O Que Eu Entrego</span>
+                </h2>
+                <p class="section-subtitle text-center">
+                    <span class="en-text">Professional video engineering. No "CapCut presets" here — everything is built from scratch.</span>
+                    <span class="pt-text">Engenharia de vídeo profissional. Nada de "presets de CapCut" — tudo é construído do zero.</span>
+                </p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Bento Card 1: Authority Editing -->
+                <div class="bento-card x-large reveal-in reveal-delay-1">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3 class="bento-title">
+                            <span class="en-text">Authority-Driven Editing</span>
+                            <span class="pt-text">Edição Focada em Autoridade</span>
+                        </h3>
+                        <p class="bento-description">
+                            <span class="en-text">I use custom motion graphics and intentional pacing to make standard talking-head footage feel premium, trustworthy, and high-end. Ideal for B2B SaaS and business leaders.</span>
+                            <span class="pt-text">Uso motion graphics personalizados e ritmo intencional para transformar filmagens simples em conteúdos premium e de alta credibilidade. Ideal para SaaS B2B e líderes de negócios.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bento Card 2: Custom 3D & 2D Motion -->
+                <div class="bento-card reveal-in reveal-delay-2">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <h3 class="bento-title">
+                            <span class="en-text">Custom 2D/3D Motion</span>
+                            <span class="pt-text">Motion 2D/3D Customizado</span>
+                        </h3>
+                        <p class="bento-description">
+                            <span class="en-text">Fluent in After Effects and Blender. I design personalized animations that perfectly integrate into your brand guidelines.</span>
+                            <span class="pt-text">Fluência em After Effects e Blender. Desenvolvo animações personalizadas seguindo à risca o manual de identidade visual da sua marca.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bento Card 3: Technical Cleanup -->
+                <div class="bento-card reveal-in reveal-delay-3">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <i data-lucide="sliders"></i>
+                        </div>
+                        <h3 class="bento-title">
+                            <span class="en-text">Technical Cleanup</span>
+                            <span class="pt-text">Refinamento Técnico</span>
+                        </h3>
+                        <p class="bento-description">
+                            <span class="en-text">I fix the annoying details: balancing harsh room echo, correcting iPhone camera color shifts, and fine-tuning audio levels.</span>
+                            <span class="pt-text">Corrijo os detalhes chatos: elimino eco de sala, corrijo desvios de cores de câmeras de iPhone e trato a mixagem de áudio.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bento Card 4: Adaptive Style -->
+                <div class="bento-card x-large reveal-in reveal-delay-4">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+                        <h3 class="bento-title">
+                            <span class="en-text">Adaptive Brand Styling</span>
+                            <span class="pt-text">Estilo Adaptável à Marca</span>
+                        </h3>
+                        <p class="bento-description">
+                            <span class="en-text">I don't use a "one-size-fits-all" framework. I adapt the tone, visual elements, and pacing to match your specific voice, product, and target audience.</span>
+                            <span class="pt-text">Não uso uma fórmula pronta. Adapto o tom da edição, elementos visuais e o ritmo para condizer perfeitamente com o seu nicho de atuação e público.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Works (Portfolio) -->
+    <section class="work-section" id="work">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center">
+                    <span class="en-text">Selected Works</span>
+                    <span class="pt-text">Trabalhos Selecionados</span>
+                </h2>
+                <p class="section-subtitle text-center">
+                    <span class="en-text">Browse videos edited for international clients. Click to watch directly.</span>
+                    <span class="pt-text">Explore vídeos editados para clientes internacionais. Clique para assistir diretamente.</span>
+                </p>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="video-grid" id="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card reveal-in reveal-delay-1" data-video-id="NWeMYtBhpZY">
+                    <div class="video-thumbnail-wrapper">
+                        <!-- Custom styled placeholder for thumbnail with high-end text -->
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/NWeMYtBhpZY/hqdefault.jpg');">
+                            <div class="video-thumbnail-overlay"></div>
+                            <span class="video-badge">SaaS Case Study</span>
+                            <div class="video-preview-title">SCALING SAAS</div>
+                            <div class="play-btn-circle">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">
+                            <span class="en-text">How We Scaled SaaS ARR to $1.2M</span>
+                            <span class="pt-text">Como Escalamos ARR de SaaS para $1.2M</span>
+                        </h3>
+                        <div class="video-tags">
+                            <span class="video-tag">Motion Design</span>
+                            <span class="video-tag">Sound FX</span>
+                            <span class="video-tag">Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card reveal-in reveal-delay-2" data-video-id="JNs9AKrjT28">
+                    <div class="video-thumbnail-wrapper">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/JNs9AKrjT28/hqdefault.jpg');">
+                            <div class="video-thumbnail-overlay"></div>
+                            <span class="video-badge">Finance</span>
+                            <div class="video-preview-title">AUTHORITY MINDSET</div>
+                            <div class="play-btn-circle">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">
+                            <span class="en-text">Why SaaS Founders Succeed in 2026</span>
+                            <span class="pt-text">Por que Fundadores de SaaS Vencem em 2026</span>
+                        </h3>
+                        <div class="video-tags">
+                            <span class="video-tag">3D Animations</span>
+                            <span class="video-tag">Pacing</span>
+                            <span class="video-tag">Subtitles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card reveal-in reveal-delay-3" data-video-id="bKEmJIch0nI">
+                    <div class="video-thumbnail-wrapper">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/bKEmJIch0nI/hqdefault.jpg');">
+                            <div class="video-thumbnail-overlay"></div>
+                            <span class="video-badge">Business B2B</span>
+                            <div class="video-preview-title">LEAD GENERATION</div>
+                            <div class="play-btn-circle">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">
+                            <span class="en-text">The Ultimate Lead Gen Strategy for SaaS</span>
+                            <span class="pt-text">A Estratégia Definitiva de Geração de Leads</span>
+                        </h3>
+                        <div class="video-tags">
+                            <span class="video-tag">Graphic Assets</span>
+                            <span class="video-tag">Clean Audio</span>
+                            <span class="video-tag">DaVinci Resolve</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-card reveal-in reveal-delay-1" data-video-id="mbuffOIfZBE">
+                    <div class="video-thumbnail-wrapper">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/mbuffOIfZBE/hqdefault.jpg');">
+                            <div class="video-thumbnail-overlay"></div>
+                            <span class="video-badge">Finance Breakdown</span>
+                            <div class="video-preview-title">MARKET ANALYSIS</div>
+                            <div class="play-btn-circle">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">
+                            <span class="en-text">B2B SaaS Growth vs Traditional Businesses</span>
+                            <span class="pt-text">Crescimento de SaaS B2B vs Empresas Tradicionais</span>
+                        </h3>
+                        <div class="video-tags">
+                            <span class="video-tag">Kinetic Type</span>
+                            <span class="video-tag">Blender 3D</span>
+                            <span class="video-tag">Sound Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card reveal-in reveal-delay-2" data-video-id="Wvuy-GNx0Sg">
+                    <div class="video-thumbnail-wrapper">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/Wvuy-GNx0Sg/hqdefault.jpg');">
+                            <div class="video-thumbnail-overlay"></div>
+                            <span class="video-badge">Saas Strategy</span>
+                            <div class="video-preview-title">RETENTION BOOTCAMP</div>
+                            <div class="play-btn-circle">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">
+                            <span class="en-text">Optimizing User Retention with Video Assets</span>
+                            <span class="pt-text">Otimizando a Retenção de Usuários com Vídeos</span>
+                        </h3>
+                        <div class="video-tags">
+                            <span class="video-tag">Motion Design</span>
+                            <span class="video-tag">Color Grading</span>
+                            <span class="video-tag">Sound Effects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card reveal-in reveal-delay-3" data-video-id="oLmT5468V2E">
+                    <div class="video-thumbnail-wrapper">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/oLmT5468V2E/hqdefault.jpg');">
+                            <div class="video-thumbnail-overlay"></div>
+                            <span class="video-badge">Agency Promo</span>
+                            <div class="video-preview-title">AUTHORITY BUILDING</div>
+                            <div class="play-btn-circle">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">
+                            <span class="en-text">Building Personal Brand Authority in Niche Markets</span>
+                            <span class="pt-text">Construindo Autoridade de Marca Pessoal</span>
+                        </h3>
+                        <div class="video-tags">
+                            <span class="video-tag">Blender 3D</span>
+                            <span class="video-tag">Custom Transition</span>
+                            <span class="video-tag">Sound FX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Timeline -->
+    <section class="experience-section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center">
+                    <span class="en-text">Professional Experience</span>
+                    <span class="pt-text">Experiência Profissional</span>
+                </h2>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item reveal-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-role">
+                                <span class="en-text">Long Content Editor & Motion Designer</span>
+                                <span class="pt-text">Editor de Long Content & Motion Designer</span>
+                            </h3>
+                            <span class="timeline-company"><a href="https://ks-media.co/" target="_blank">KSMEDIA</a></span>
+                        </div>
+                        <p class="timeline-description">
+                            <span class="en-text">Worked editing, sound engineering, and creating visuals for B2B SaaS founders inside the KSMEDIA agency. Transformed simple videos into high-authority personal brand assets.</span>
+                            <span class="pt-text">Atuei na edição de vídeo, engenharia de som e criação de identidade visual para fundadores de SaaS B2B na agência KSMEDIA. Transformando gravações simples em ativos de autoridade da marca.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item reveal-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-role">
+                                <span class="en-text">Short Content Video Editor</span>
+                                <span class="pt-text">Editor de Vídeos Curtos (Short-form)</span>
+                            </h3>
+                            <span class="timeline-company">AW3MED</span>
+                        </div>
+                        <p class="timeline-description">
+                            <span class="en-text">Worked editing engaging and strategic short-form content for several platforms, maximizing visual hook rates and client engagement.</span>
+                            <span class="pt-text">Edição estratégica de conteúdo short-form de alto engajamento, otimizando ganchos visuais e retenção para criadores de conteúdo e negócios.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section / Contact -->
+    <section class="cta-section">
+        <div class="container cta-container">
+            <div class="cta-card reveal-in">
+                <div class="cta-glow"></div>
+                <div class="cta-content">
+                    <h2 class="cta-title">
+                        <span class="en-text">Let's build your brand authority</span>
+                        <span class="pt-text">Vamos construir a autoridade da sua marca</span>
+                    </h2>
+                    <p class="cta-description">
+                        <span class="en-text">Ready to transform standard talking-head footage into high-authority video assets? Get in touch and let's work.</span>
+                        <span class="pt-text">Pronto para transformar gravações brutas em ativos de vídeo de altíssimo nível? Fale comigo agora.</span>
+                    </p>
+                    <div class="cta-actions">
+                        <a href="https://x.com/Lin234x" target="_blank" class="btn btn-primary btn-large">
+                            <span class="en-text">DM for Work (X.com)</span>
+                            <span class="pt-text">Chamar na DM (X.com)</span>
+                        </a>
+                        <a href="mailto:lean.18braga@gmail.com" class="btn btn-outline btn-large">
+                            <span class="en-text">Send an Email</span>
+                            <span class="pt-text">Enviar E-mail</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-area">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <svg class="scissors-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"></circle>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                    </svg>
+                    <span>LIN<span class="dot">.</span></span>
+                </a>
+                <p class="footer-tagline">
+                    <span class="en-text">Authority-Driven Video Engineering</span>
+                    <span class="pt-text">Engenharia de Vídeo Focada em Autoridade</span>
+                </p>
+            </div>
+            
+            <div class="footer-credits">
+                <p>&copy; 2026 Lean Hilson Braga (Lin). <span class="en-text">All rights reserved.</span><span class="pt-text">Todos os direitos reservados.</span></p>
+                <p class="footer-subcredits">
+                    <span class="en-text">Built with DaVinci Resolve, AE & Blender in mind.</span>
+                    <span class="pt-text">Desenvolvido pensando em DaVinci, AE & Blender.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="video-modal" role="dialog" aria-hidden="true">
+        <div class="video-modal-overlay" id="video-modal-overlay"></div>
+        <div class="video-modal-container">
+            <button class="video-modal-close" id="video-modal-close" aria-label="Close video player">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="video-modal-player">
+                <iframe id="youtube-iframe" src="about:blank" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP / Three.js App Scripts -->
+    <script src="3d-scene.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
