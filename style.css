@@ -1278,10 +1278,8 @@ section {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(157, 78, 221, 0.2);
 }
 
-/* Hide default browser cursor globally on desktop to show only custom glowing circles */
-@media (pointer: fine) {
-    * {
-        cursor: none !important;
-    }
+/* Hide default browser cursor globally to show only custom glowing circles */
+html, body, a, button, input, textarea, select, iframe, .video-card, .bento-card, .timeline-item, * {
+    cursor: none !important;
 }
 
